@@ -53,14 +53,14 @@ private val Orange = Color(0xFFFF5500)
 
 private val DarkColors = darkColorScheme(
     primary = Orange,
-    background = Color(0xFF121212),
-    surface = Color(0xFF121212),
+    background = Color(0xFF000000),
+    surface = Color(0xFF000000),
 )
 
 private val LightColors = lightColorScheme(
     primary = Orange,
-    background = Color(0xFFFAFAFA),
-    surface = Color(0xFFFAFAFA),
+    background = Color(0xFF000000),
+    surface = Color(0xFF000000),
 )
 
 @Composable

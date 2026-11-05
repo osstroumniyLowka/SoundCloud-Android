@@ -64,6 +64,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.media3.common.Player
 import androidx.media3.session.MediaController
 import coil.compose.AsyncImage
+import com.scd.android.ui.wavefeed.LiteWaveFeed
 import kotlinx.coroutines.launch
 
 enum class Tab { Search, Wave, Me }
@@ -297,16 +298,7 @@ fun MainScreen(controller: MediaController?, onSignOut: () -> Unit) {
                     onOpenArtist = { openArtist = it },
                     onOpenPlaylist = { openPlaylist = it },
                 )
-                tab == Tab.Wave -> WaveFeed(
-                    controller = controller,
-                    tracks = WaveState.tracks,
-                    loading = WaveState.loading,
-                    error = WaveState.error,
-                    canLoadMore = !Prefs.offline && WaveState.tracks.isNotEmpty(),
-                    onLoadMore = { WaveState.load(true) },
-                    onRefresh = { WaveState.refresh(controller) },
-                    onPlay = { Playback.play(controller, WaveState.tracks, it, autoContinue = true) },
-                )
+                tab == Tab.Wave -> LiteWaveFeed(modifier = Modifier)
                 else -> LibraryScreen(
                     play = ::play,
                     onSignOut = onSignOut,
